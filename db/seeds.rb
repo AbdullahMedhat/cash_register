@@ -5,7 +5,7 @@ green_tea = Product.create(
 )
 
 strawberries = Product.create(
-  name: 'Strawberries', product_code: 'SR1', price: 3.00
+  name: 'Strawberries', product_code: 'SR1', price: 5.00
 )
 
 coffe = Product.create(
