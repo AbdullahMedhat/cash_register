@@ -4,7 +4,7 @@
 
 require 'rails_helper'
 RSpec.describe 'orders', type: :request do
-  describe 'GET /checkout' do
+  describe 'GET /orders/checkout' do
     let!(:order) { create(:order) }
     let!(:green_tea) do
       create(
@@ -41,7 +41,7 @@ RSpec.describe 'orders', type: :request do
         :offer,
         description: 'Buy 3 or more and get 5% discount',
         minimum_quantity: 3,
-        discount_percentage: 10,
+        discount_percentage: 0.1,
         offer_type: 'DISCOUNT'
       )
     end
@@ -51,7 +51,7 @@ RSpec.describe 'orders', type: :request do
         :offer,
         description: 'Buy 3 or more and get 33% discount',
         minimum_quantity: 3,
-        discount_percentage: 33.3,
+        discount_percentage: (1.0 / 3.0),
         offer_type: 'DISCOUNT'
       )
     end
@@ -95,12 +95,13 @@ RSpec.describe 'orders', type: :request do
       end
 
       it 'should show the details for each product in the basket with the total price' do
-        get '/checkout'
+        get '/orders/checkout'
         expect(response).to have_http_status(:ok)
         expect(response).to render_template :checkout
       end
 
       it 'should shoud the correct prices for each product, and the total price for this order' do
+        get '/orders/checkout'
         order_details = [
           {
             name: 'Green Tea',
@@ -133,12 +134,13 @@ RSpec.describe 'orders', type: :request do
       end
 
       it 'should show the details for each product in the basket with the total price' do
-        get '/checkout'
+        get '/orders/checkout'
         expect(response).to have_http_status(:ok)
         expect(response).to render_template :checkout
       end
 
       it 'should shoud the correct prices for each product, and the total price for this order' do
+        get '/orders/checkout'
         order_details = [
           {
             name: 'Green Tea',
@@ -166,12 +168,13 @@ RSpec.describe 'orders', type: :request do
       end
 
       it 'should show the details for each product in the basket with the total price' do
-        get '/checkout'
+        get '/orders/checkout'
         expect(response).to have_http_status(:ok)
         expect(response).to render_template :checkout
       end
 
       it 'should shoud the correct prices for each product, and the total price for this order' do
+        get '/orders/checkout'
         order_details = [
           {
             name: 'Green Tea',
@@ -180,7 +183,7 @@ RSpec.describe 'orders', type: :request do
           },
           {
             name: 'Strawberries',
-            quantity: 1,
+            quantity: 3,
             price: 13.50
           }
         ]
@@ -209,12 +212,14 @@ RSpec.describe 'orders', type: :request do
       end
 
       it 'should show the details for each product in the basket with the total price' do
-        get '/checkout'
+        get '/orders/checkout'
         expect(response).to have_http_status(:ok)
         expect(response).to render_template :checkout
       end
 
       it 'should shoud the correct prices for each product, and the total price for this order' do
+        get '/orders/checkout'
+
         order_details = [
           {
             name: 'Green Tea',

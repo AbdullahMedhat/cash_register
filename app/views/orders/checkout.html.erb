@@ -1,0 +1,35 @@
+<div class="checkout-body">
+  <h1>Checkout Page</h1>
+  <div class="order-details">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Product name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <% @order_details.each do |order_item| %>
+        <tbody>
+          <tr>
+            <td>
+              <%= order_item[:name] %>
+            </td>
+            <td>
+              <%= order_item[:quantity] %>
+            </td>
+
+            <td>
+              <%= order_item[:price].round(2) %>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+  <hr>
+  <p class="total-price">Total price: <%= @total_price.round(2) %></p>
+</div>
+
+

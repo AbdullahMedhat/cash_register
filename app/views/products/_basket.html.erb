@@ -22,7 +22,7 @@
         <% end %>
       </tbody>
     </table>
-    <%= link_to 'Checkout', nil, class: 'checkout-link btn btn-primary' %>
+    <%= link_to 'Checkout', orders_checkout_path, class: 'checkout-link btn btn-primary' %>
 
     <%= form_tag products_remove_basket_item_path, method: :delete do %>
       <%= submit_tag "Empty yout basket", class: 'btn btn-danger' %>

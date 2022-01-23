@@ -129,3 +129,35 @@ html, body {
   text-decoration: none;
   margin: 20px auto;
 }
+
+.checkout-body {
+  margin: 0 auto;
+  width: 40%;
+
+  h1 {
+    text-align: center;
+  }
+
+  .order-details {
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    padding: 20px;
+  }
+
+  table,thead, tbody,tr {
+    width: 100%;
+    text-align: center;
+  }
+
+  th,td {
+    width: 33.3%;
+  }
+
+  .total-price {
+    padding: 0 50px;
+    font-size: 24px;
+    font-weight: 600px;
+    text-align: center;
+  }
+}
