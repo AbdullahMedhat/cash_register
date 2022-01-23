@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
     create_table :products do |t|
       t.string :product_code, unique: true
       t.string :name, unique: true
-      t.decimal :price
+      t.float :price
 
       t.timestamps
     end

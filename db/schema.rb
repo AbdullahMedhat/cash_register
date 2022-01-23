@@ -13,11 +13,13 @@
 ActiveRecord::Schema.define(version: 2022_01_23_150726) do
 
   create_table "offers", force: :cascade do |t|
+    t.string "offer_type", null: false
     t.string "description"
-    t.integer "minimum_quantity", default: 1
-    t.integer "discount_percentage"
+    t.integer "minimum_quantity", default: 1, null: false
+    t.float "discount_percentage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["offer_type", "discount_percentage"], name: "index_offers_on_offer_type_and_discount_percentage", unique: true
   end
 
   create_table "order_products", force: :cascade do |t|
@@ -45,7 +47,7 @@ ActiveRecord::Schema.define(version: 2022_01_23_150726) do
   create_table "products", force: :cascade do |t|
     t.string "product_code"
     t.string "name"
-    t.decimal "price"
+    t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
