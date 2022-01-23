@@ -1,0 +1,29 @@
+<div class="basket-container">  
+  <h2>Basket</h2>
+
+  <% if @order.order_products.length >= 1 %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantitiy</th>        
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.order_products.each do |product| %>
+          <tr>
+            <td>
+              <%= product.product.name %>
+            </td>
+            <td>
+              <%= product.quantity %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to 'Checkout' %>
+  <% else %>
+    <p>You basket are Empty</p>
+  <% end %>
+</div>
