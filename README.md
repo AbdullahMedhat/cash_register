@@ -1,24 +1,12 @@
-# README
+# Cash Register
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app create by Ruby version v3.0.3, Rails version v7.0.1
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## STEPS to run the app:-
+  > Make sure you have ruby v3.0.3, rails v7.0.1
+  - `bundle install`
+  - `rake db:create`
+  - `rake db:migrate`
+  - `rake db:seed`
+  - `rails s` to start the server
+  - `rspec` to run all the test
