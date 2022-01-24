@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
     end
 
     respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Your item has been added' }
       format.js { render layout: false }
     end
   end
@@ -25,6 +26,7 @@ class ProductsController < ApplicationController
     OrderProduct.where(order_id: @order.id).destroy_all
 
     respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Your basket is empty now' }
       format.js { render layout: false }
     end
   end
